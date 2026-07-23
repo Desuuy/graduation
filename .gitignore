@@ -35,3 +35,6 @@ yarn-error.log*
 *.wav
 *.zip
 *.rar
+
+
+private/
