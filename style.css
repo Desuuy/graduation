@@ -528,28 +528,35 @@ p { margin: 0; }
 }
 
 /* =========================================================
-   MAP / BẢN ĐỒ SECTION
+   CEREMONY LOCATION / BẢN ĐỒ & CHỈ ĐƯỜNG
    ========================================================= */
-.map-section {
-  background: var(--cream);
-  text-align: center;
+.ceremony-location {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 1000px;
+  margin: 3rem auto 0;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 2rem;
 }
-.map-section .section-title { margin-bottom: 0.5rem; }
-.map-section .section-sub {
-  color: var(--muted);
-  margin-bottom: 2.5rem;
+@media (min-width: 850px) {
+  .ceremony-location {
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 2.5rem;
+  }
 }
 
 .map-frame {
   position: relative;
-  max-width: 1000px;
-  margin: 0 auto 2rem;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-deep);
   border: 1px solid var(--gold);
-  background: var(--ivory);
-  aspect-ratio: 16 / 9;
+  background: var(--white);
+  aspect-ratio: 4 / 3;
+  min-height: 100%;
 }
 .map-frame iframe {
   width: 100%;
@@ -557,15 +564,29 @@ p { margin: 0; }
   border: 0;
   display: block;
 }
-@media (max-width: 600px) {
-  .map-frame { aspect-ratio: 4/3; }
+
+.location-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 0.5rem 0;
+}
+.location-details .eyebrow {
+  padding-left: 0;
+  margin-bottom: 0.75rem;
+}
+.location-details h3 {
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  margin-bottom: 1rem;
+}
+.location-address {
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 .map-buttons {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
   margin-top: 1.5rem;
 }
 
@@ -606,21 +627,30 @@ p { margin: 0; }
 .btn-gold:hover { background: var(--ink); color: var(--gold); border-color: var(--ink); }
 
 .address-card {
-  max-width: 640px;
-  margin: 2.5rem auto 0;
-  padding: 1.5rem 2rem;
-  background: var(--ivory);
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--white);
   border-radius: var(--radius);
   border: 1px solid var(--line);
-  font-style: italic;
   color: var(--charcoal);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
   line-height: 1.5;
 }
 .address-card i {
   color: var(--gold);
   margin-right: 0.5rem;
+}
+.address-card strong {
+  display: block;
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+}
+.address-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
 }
 
 /* =========================================================
