@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="ogBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F2A44"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <radialGradient id="ogGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#C9A961" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#C9A961" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ogGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5D4A1"/>
+      <stop offset="100%" stop-color="#C9A961"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#ogBg)"/>
+  <ellipse cx="600" cy="270" rx="450" ry="320" fill="url(#ogGlow)"/>
+
+  <!-- Decorative frame -->
+  <rect x="60" y="60" width="1080" height="510" fill="none" stroke="#C9A961" stroke-width="1.5" opacity="0.4"/>
+  <rect x="80" y="80" width="1040" height="470" fill="none" stroke="#C9A961" stroke-width="0.6" opacity="0.3"/>
+
+  <!-- Decorative corner ornaments -->
+  <g stroke="url(#ogGold)" stroke-width="1.5" fill="none">
+    <path d="M 60 60 L 120 60 M 60 60 L 60 120"/>
+    <path d="M 1140 60 L 1080 60 M 1140 60 L 1140 120"/>
+    <path d="M 60 570 L 120 570 M 60 570 L 60 510"/>
+    <path d="M 1140 570 L 1080 570 M 1140 570 L 1140 510"/>
+  </g>
+
+  <!-- Eyebrow -->
+  <text x="600" y="190" text-anchor="middle"
+        font-family="'Be Vietnam Pro', sans-serif"
+        font-size="22" letter-spacing="16" fill="#C9A961" font-weight="500">LỄ TỐT NGHIỆP 2026</text>
+
+  <!-- Main name -->
+  <text x="600" y="320" text-anchor="middle"
+        font-family="Georgia, 'Cormorant Garamond', serif"
+        font-size="90" font-style="italic" font-weight="600"
+        fill="#FAF7F2">Nguyễn Anh Huy</text>
+
+  <!-- Divider -->
+  <line x1="500" y1="370" x2="700" y2="370" stroke="#C9A961" stroke-width="1.2"/>
+
+  <!-- Subtitle -->
+  <text x="600" y="420" text-anchor="middle"
+        font-family="'Be Vietnam Pro', sans-serif"
+        font-size="22" fill="#E5D4A1" font-weight="400">Tân Cử nhân Khoa học Dữ liệu</text>
+  <text x="600" y="455" text-anchor="middle"
+        font-family="'Be Vietnam Pro', sans-serif"
+        font-size="20" fill="#FAF7F2" font-weight="300" opacity="0.85">Đại học Ngoại ngữ - Tin học TP.HCM</text>
+
+  <!-- Date -->
+  <text x="600" y="535" text-anchor="middle"
+        font-family="Georgia, serif" font-style="italic"
+        font-size="20" fill="#C9A961" letter-spacing="4">Thứ Sáu · 31 tháng 7 · 2026</text>
+</svg>

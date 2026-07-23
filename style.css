@@ -1,0 +1,895 @@
+/* =========================================================
+   Graduation Invitation — Elegant Theme
+   Nguyễn Anh Huy · HUFLIT · 2026
+   ========================================================= */
+
+/* ---------- Reset & Root ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Color palette — Elegant: Ivory/Charcoal/Gold */
+  --ink:          #1a1a1a;
+  --ink-deep:     #0F2A44;
+  --gold:         #C9A961;
+  --gold-light:   #E5D4A1;
+  --gold-deep:    #B8954A;
+  --ivory:        #FAF7F2;
+  --cream:        #F5EFE6;
+  --charcoal:     #2B2B2B;
+  --muted:        #8B8680;
+  --line:         rgba(26,26,26,0.12);
+
+  /* Layout tokens */
+  --container:    min(92%, 1120px);
+  --section-pad:  clamp(4rem, 9vw, 7rem);
+  --radius:       1rem;
+  --radius-lg:    1.75rem;
+
+  /* Typography (fluid) */
+  --fs-h1:        clamp(2.75rem, 8vw, 5.5rem);
+  --fs-h2:        clamp(2rem, 5vw, 3.25rem);
+  --fs-h3:        clamp(1.25rem, 2vw, 1.5rem);
+  --fs-body:      clamp(1rem, 1.6vw, 1.125rem);
+  --fs-eyebrow:   clamp(0.7rem, 1vw, 0.85rem);
+
+  /* Shadows */
+  --shadow-soft:  0 12px 36px -16px rgba(26,26,26,0.18);
+  --shadow-deep:  0 24px 60px -22px rgba(26,26,26,0.28);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: var(--charcoal);
+  background: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+  color: var(--ink);
+}
+
+p { margin: 0; }
+
+/* ---------- Utilities ---------- */
+.container { width: var(--container); margin-inline: auto; }
+.section { padding: var(--section-pad) 0; }
+.text-center { text-align: center; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  font-size: var(--fs-h2);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem auto;
+  max-width: 200px;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.divider-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background:
+    radial-gradient(ellipse at top, rgba(201,169,97,0.18), transparent 65%),
+    radial-gradient(ellipse at bottom, rgba(15,42,68,0.06), transparent 70%),
+    linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 1.5rem;
+  border: 1px solid var(--gold);
+  opacity: 0.35;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 2.5rem;
+  border: 1px solid var(--gold);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-eyebrow {
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  padding-left: 0.5em;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '·';
+  margin: 0 0.6em;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.hero-title {
+  font-size: var(--fs-h1);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.hero-title .accent { color: var(--gold); }
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-style: italic;
+  color: var(--ink);
+  margin: 1rem 0 0.75rem;
+  line-height: 1.1;
+}
+
+.hero-sub {
+  max-width: 580px;
+  margin: 0.75rem auto 1.5rem;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.hero-meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: var(--charcoal);
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 0.5rem; }
+.hero-meta i { color: var(--gold); font-size: 0.85em; }
+
+.scroll-cue {
+  position: absolute;
+  bottom: 2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  animation: bounce 2.4s ease-in-out infinite;
+  z-index: 2;
+}
+.scroll-cue i { font-size: 1rem; }
+
+@keyframes bounce {
+  0%,100% { transform: translate(-50%, 0); opacity: 0.7; }
+  50%     { transform: translate(-50%, 6px); opacity: 1; }
+}
+
+/* =========================================================
+   COUNTDOWN SECTION
+   ========================================================= */
+.countdown-section {
+  background: var(--ink-deep);
+  color: var(--ivory);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.countdown-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,169,97,0.25), transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(201,169,97,0.15), transparent 60%);
+  pointer-events: none;
+}
+.countdown-section .container { position: relative; z-index: 1; }
+
+.countdown-section .eyebrow { color: var(--gold-light); }
+.countdown-section .section-title { color: var(--ivory); }
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 720px;
+  margin: 2.5rem auto 1rem;
+}
+
+.cd-cell {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,169,97,0.35);
+  border-radius: var(--radius);
+  padding: 1.5rem 0.5rem;
+  position: relative;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.cd-cell::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius);
+  padding: 1px;
+  background: linear-gradient(135deg, transparent, rgba(201,169,97,0.4), transparent);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.cd-cell span {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.25rem, 7vw, 4rem);
+  font-weight: 600;
+  color: var(--gold);
+  font-feature-settings: 'tnum';
+  line-height: 1;
+}
+.cd-cell small {
+  display: block;
+  margin-top: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: rgba(250,247,242,0.7);
+}
+
+.cd-message {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: var(--gold-light);
+  opacity: 0.85;
+  font-size: 0.95rem;
+  min-height: 1.5em;
+}
+
+@media (max-width: 480px) {
+  .countdown-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+}
+
+/* =========================================================
+   INVITATION / LỜI MỜI SECTION
+   ========================================================= */
+.invitation-section {
+  background: var(--ivory);
+  text-align: center;
+}
+.invitation-text {
+  max-width: 720px;
+  margin: 1.5rem auto 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.85;
+  color: var(--charcoal);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+}
+.invitation-quote {
+  display: inline-block;
+  position: relative;
+  padding: 0 1rem;
+}
+.invitation-quote::before,
+.invitation-quote::after {
+  content: '"';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  color: var(--gold);
+  opacity: 0.6;
+  position: absolute;
+  line-height: 1;
+}
+.invitation-quote::before { left: -1.25rem; top: -1.5rem; }
+.invitation-quote::after  { right: -1.25rem; bottom: -2.5rem; }
+
+.invitation-signature {
+  margin-top: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--ink);
+}
+.invitation-signature small {
+  display: block;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-style: normal;
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 0.5rem;
+}
+
+/* =========================================================
+   ABOUT / TÂN CỬ NHÂN SECTION
+   ========================================================= */
+.about-section {
+  background: var(--cream);
+}
+.about-grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .about-grid { grid-template-columns: 0.85fr 1.15fr; gap: 4rem; }
+}
+
+.about-portrait {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-deep);
+  aspect-ratio: 4/5;
+  background: var(--ivory);
+}
+.about-portrait img,
+.about-portrait svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.about-content h2 {
+  font-size: var(--fs-h2);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.about-content .lead {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.info-list {
+  list-style: none;
+  margin: 1.5rem 0 2rem;
+}
+.info-list li {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px dashed var(--line);
+  align-items: baseline;
+}
+.info-list li:last-child { border-bottom: none; }
+.info-list .info-label {
+  flex: 0 0 6rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+.info-list .info-value {
+  font-weight: 500;
+  color: var(--ink);
+  flex: 1;
+}
+
+.about-quote {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  background: var(--ivory);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic;
+  color: var(--charcoal);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   CEREMONY / BUỔI LỄ SECTION
+   ========================================================= */
+.ceremony-section {
+  background: var(--ivory);
+  text-align: center;
+}
+.ceremony-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  max-width: 1000px;
+  margin: 3rem auto 0;
+}
+@media (min-width: 700px) {
+  .ceremony-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+}
+
+.ceremony-card {
+  background: var(--white);
+  padding: 2.5rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  border-top: 3px solid var(--gold);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  text-align: left;
+  position: relative;
+}
+.ceremony-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-deep);
+}
+.ceremony-card i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--gold);
+  font-size: 1.35rem;
+  margin-bottom: 1.25rem;
+}
+.ceremony-card h3 {
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.ceremony-card .card-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+.ceremony-card .card-sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   MAP / BẢN ĐỒ SECTION
+   ========================================================= */
+.map-section {
+  background: var(--cream);
+  text-align: center;
+}
+.map-section .section-title { margin-bottom: 0.5rem; }
+.map-section .section-sub {
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+
+.map-frame {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-deep);
+  border: 1px solid var(--gold);
+  background: var(--ivory);
+  aspect-ratio: 16 / 9;
+}
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+@media (max-width: 600px) {
+  .map-frame { aspect-ratio: 4/3; }
+}
+
+.map-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2rem;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary {
+  background: var(--ink-deep);
+  color: var(--ivory);
+}
+.btn-primary:hover { background: var(--gold-deep); color: var(--ivory); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-secondary:hover { background: var(--ink); color: var(--ivory); }
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+.btn-gold:hover { background: var(--ink); color: var(--gold); border-color: var(--ink); }
+
+.address-card {
+  max-width: 640px;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem 2rem;
+  background: var(--ivory);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  font-style: italic;
+  color: var(--charcoal);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+.address-card i {
+  color: var(--gold);
+  margin-right: 0.5rem;
+}
+
+/* =========================================================
+   TRI ÂN SECTION
+   ========================================================= */
+.thanks-section {
+  background: var(--ink-deep);
+  color: var(--ivory);
+  text-align: center;
+  position: relative;
+}
+.thanks-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(201,169,97,0.15), transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(201,169,97,0.15), transparent 50%);
+  pointer-events: none;
+}
+.thanks-section .container { position: relative; z-index: 1; }
+
+.thanks-section .eyebrow { color: var(--gold-light); }
+.thanks-section .section-title { color: var(--ivory); font-size: var(--fs-h2); }
+.thanks-section .section-sub {
+  max-width: 600px;
+  margin: 1rem auto 3rem;
+  color: rgba(250,247,242,0.8);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.thanks-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .thanks-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+}
+
+.thank-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,169,97,0.3);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.thank-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.thank-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.07); }
+.thank-card:hover::before { opacity: 1; }
+
+.thank-icon {
+  width: 64px; height: 64px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(201,169,97,0.15);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.5rem;
+}
+
+.thank-card h3 {
+  font-size: 1.25rem;
+  color: var(--gold);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.thank-card p {
+  color: rgba(250,247,242,0.85);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+  background: linear-gradient(180deg, var(--ink-deep), var(--ink));
+  color: var(--ivory);
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  position: relative;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  max-width: 320px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.footer-cap {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+
+.footer-thanks {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--ivory);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.footer-year {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+}
+
+.footer-meta {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: rgba(250,247,242,0.5);
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   MUSIC TOGGLE BUTTON (floating)
+   ========================================================= */
+.music-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  background: rgba(15, 42, 68, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--gold);
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.4);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Sit above AOS animations */
+}
+.music-toggle:hover {
+  background: var(--ink);
+  transform: scale(1.08);
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+}
+.music-toggle.playing {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+.music-toggle.playing::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  animation: pulse-ring 1.6s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(1.4); opacity: 0;   }
+}
+
+.music-toggle .icon-play,
+.music-toggle .icon-pause {
+  position: absolute;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.music-toggle .icon-pause { opacity: 0; transform: scale(0.6); }
+.music-toggle.playing .icon-play  { opacity: 0; transform: scale(0.6); }
+.music-toggle.playing .icon-pause { opacity: 1; transform: scale(1); }
+
+.music-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--ink);
+  color: var(--gold-light);
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.music-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--ink);
+}
+.music-toggle:hover .music-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+/* =========================================================
+   UTILITIES & RESPONSIVE
+   ========================================================= */
+@media (max-width: 600px) {
+  :root {
+    --section-pad: clamp(3rem, 10vw, 4rem);
+  }
+  .hero::before { inset: 1rem; }
+  .hero::after  { inset: 1.5rem; }
+  .btn { padding: 0.85rem 1.5rem; font-size: 0.9rem; }
+  .ceremony-card { padding: 2rem 1.25rem; }
+}
+
+/* Smooth AOS-friendly visibility fallback */
+[data-aos] { will-change: transform, opacity; }
+
+/* Selection */
+::selection { background: var(--gold); color: var(--ink); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .scroll-cue { animation: none; }
+}
